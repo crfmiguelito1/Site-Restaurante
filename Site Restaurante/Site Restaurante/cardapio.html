@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio - Bistrô da Serra</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #fff; 
+            color: #333; 
+            padding: 20px;
+        }
+
+        header {
+            background-color: #fff; 
+            color: #333; 
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        .cardapio-section {
+            text-align: center;
+        }
+
+        .categoria {
+            margin: 30px 0;
+        }
+
+        .categoria h2 {
+            font-size: 1.8rem;
+            color: #6c5b4c; 
+            margin-bottom: 15px;
+        }
+
+        .pratos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .prato {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            background: #fff; 
+        }
+
+        .prato img {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .prato h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333; 
+        }
+
+        .prato p {
+            font-size: 0.9rem;
+            color: #666; 
+        }
+
+        nav {
+            display: flex;
+            background-color: rgb(108, 91, 76); 
+            justify-content: space-between;
+            align-items: center;
+            width: auto; 
+            padding: 0 20px; 
+            height: auto;
+        }
+
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-list a:hover {
+            color: #e0d5c8;
+        }
+
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-list.mobile {
+            display: none;
+            flex-direction: column;
+            background-color: #6c5b4c;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+
+        .nav-list.active {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                background-color: #6c5b4c;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-list.active {
+                display: flex;
+            }
+        }
+
+        .login-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background-color: #f4ede4;
+            color: #6c5b4c;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            background-color: #e0d5c8;
+        }
+        
+        .login-btn img {
+            width: 20px;
+            height: 20px;
+        }
+        
+       
+        .login-mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #6c5b4c;
+            color: #fff;
+            font-size: 1rem;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .login-mobile:hover {
+            background-color: #543e2e;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .login-btn {
+                display: none; 
+            }
+        
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                background-color: #fff;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                width: 200px;
+                z-index: 10;
+                padding: 10px;
+            }
+        
+            .nav-list.active {
+                display: flex;
+            }
+        
+            .nav-list a {
+                color: #000; 
+            }
+        
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+        }
+        
+        
+        @media (min-width: 769px) {
+            .login-mobile {
+                display: none; 
+            }
+        
+            .hamburger {
+                display: none; 
+            }
+        
+            .nav-list {
+                display: flex; 
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+            
+        <a class="logo" href="/">
+            <img src="site.png" alt="Logo do Restaurante">
+        </a>
+    
+
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <ul class="nav-list">
+            <li><a href="index.html">Sobre nós</a></li>
+            <li><a href="index.html">Reservas</a></li>
+            <li><a href="index.html">Avaliações</a></li>
+            <li><a href="index.html">Localização</a></li>
+            <li><a href="signin.html" class="login-mobile">Entrar</a></li>
+        </ul>
+
+        <a href="signin.html" class="login-btn">
+            <img src="154345.png" alt="Ícone de usuário">
+            Login
+        </a>
+    </nav>
+
+    <header>
+        <h1>Cardápio - Bistrô da Serra</h1>
+        <p>Explore nossas delícias exclusivas</p>
+    </header>
+    <section class="cardapio-section">
+        
+        <div class="categoria">
+            <h2>Entradas</h2>
+            <div class="pratos">
+                <div class="prato">
+                    <img src="bolinhos de bacalhau 300x200.jpg" alt="Entrada 1">
+                    <h3>Bolinhos de Bacalhau</h3>
+                    <p>Tradicionais bolinhos crocantes com recheio de bacalhau.</p>
+                </div>
+                <div class="prato">
+                    <img src="pastel-de-camarao 300x200.jpg" alt="Entrada 2">
+                    <h3>Pastéis de Camarão</h3>
+                    <p>Pastéis recheados com camarão e temperos frescos.</p>
+                </div>
+                <div class="prato">
+                    <img src="caldinho de feijão 300x200.jpg" alt="Entrada 3">
+                    <h3>Caldinho de Feijão</h3>
+                    <p>Feijão preto cremoso servido com torresmo crocante.</p>
+                </div>
+                <div class="prato">
+                    <img src="aipim frito 300x200.jpg" alt="Entrada 4">
+                    <h3>Aipim Frito</h3>
+                    <p>Aipim dourado, acompanhado de molho de alho.</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="categoria">
+            <h2>Pratos Principais</h2>
+            <div class="pratos">
+                <div class="prato">
+                    <img src="Arroz-de-Costela 300x200.jpg" alt="Principal 1">
+                    <h3>Arroz de Costela</h3>
+                    <p>Risoto cremoso com cogumelos frescos e parmesão.</p>
+                </div>
+                <div class="prato">
+                    <img src="feijao carioca 300x200.jpg" alt="Principal 2">
+                    <h3>Feijão Carioca</h3>
+                    <p>Filé mignon com molho madeira e purê de batata.</p>
+                </div>
+                <div class="prato">
+                    <img src="caldo verde 300x200.jpg" alt="Caldo Verde">
+                    <h3>Caldo Verde</h3>
+                    <p>Salmão com crosta de ervas e legumes assados.</p>
+                </div>
+                <div class="prato">
+                    <img src="moqueca de peixe 300x200.jpg" alt="Prato Principal 4">
+                    <h3>Moqueca de Peixe</h3>
+                    <p>Peixe fresco com leite de coco, pimentões e coentro.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="categoria">
+            <h2>Sobremesas</h2>
+            <div class="pratos">
+                <div class="prato">
+                    <img src="quindim 300x200.jpg" alt="Sobremesa 1">
+                    <h3>Quindim</h3>
+                    <p>Doce tradicional feito com coco, ovos e açúcar.</p>
+                </div>
+                <div class="prato">
+                    <img src="pudim de leite 300x200.jpg" alt="Sobremesa 2">
+                    <h3>Pudim de Leite</h3>
+                    <p>Pudim clássico com calda de caramelo.</p>
+                </div>
+                <div class="prato">
+                    <img src="pavê 300x200.jpg" alt="Sobremesa 3">
+                    <h3>Pavê</h3>
+                    <p>Camadas de biscoito, creme e chocolate, impossível resistir.</p>
+                </div>
+                <div class="prato">
+                    <img src="bolinho de chuva 300x200.jpg" alt="Sobremesa 4">
+                    <h3>Bolinho de Chuva</h3>
+                    <p>Bolinhos doces, polvilhados com açúcar e canela.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="categoria">
+            <h2>Bebidas</h2>
+            <div class="pratos">
+                <div class="prato">
+                    <img src="sucos naturais 300x200.jpg" alt="Suco Natural">
+                    <h3>Suco Natural</h3>
+                    <p>Suco fresco, feito na hora, com frutas da estação.</p>
+                </div>
+                <div class="prato">
+                    <img src="caipirinha 300x200.jpg" alt="Caipirinha">
+                    <h3>Caipirinha</h3>
+                    <p>Clássica bebida brasileira com limão e cachaça artesanal.</p>
+                </div>
+                <div class="prato">
+                    <img src="vinhos 300x200.jpg" alt="Vinho Tinto">
+                    <h3>Vinho Tinto</h3>
+                    <p>Seleção especial de vinhos tinto seco ou suave.</p>
+                </div>
+                <div class="prato">
+                    <img src="café gourmet 300x200.jpg" alt="Café Gourmet">
+                    <h3>Café Gourmet</h3>
+                    <p>Café especial com aroma e sabor intensos, ideal para encerrar a refeição.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navList = document.querySelector('.nav-list');
+
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+      </script>
+</body>
+</html>

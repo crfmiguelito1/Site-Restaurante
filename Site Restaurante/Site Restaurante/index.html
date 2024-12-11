@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistrô da Serra</title>
+    
+    <style>
+        
+        :root {
+            --cor-dominante: #F8F3ED;  
+            --cor-secundaria: #6C5B4C; 
+            --cor-destaque: #D28150; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--cor-destaque);
+            color: #333;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 15px;
+            }
+          
+            .container h1 {
+              text-align: center;
+              margin-bottom: 20px;
+            }
+          
+            .info {
+              width: 100%;
+              text-align: left;
+              line-height: 1.6;
+              font-size: 16px;
+              margin-bottom: 10px;
+            }
+          
+          
+            .info b {
+              font-size: 17px;
+            }
+          }
+
+        .banner {
+            background-image: url("restaurante\ \ 1920x600.jpg"); 
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .banner h2 {
+            font-size: 2rem;
+        }
+
+        .section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #000000;
+}
+        .section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #000000;
+}
+        .section h4 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #000000;
+}
+        .section h5 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #000000;
+}
+        .section h6 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #000000;
+}
+        .section h7 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #000000;
+}
+        .section h8 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #000000;
+}
+        
+        .avaliacoes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .avaliacao {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .avaliacao img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%; 
+            margin-bottom: 15px;
+        }
+
+        .avaliacao p {
+            font-style: italic;
+            color: #000000;
+            text-align: center;
+        }
+
+        .avaliacao .autor {
+            font-weight: bold;
+            color: #000000;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card img {
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #6c5b4c;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .localizacao-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .info-restaurante {
+            flex: 1;
+            text-align: left;
+            margin-right: 20px;
+        }
+
+        .info-restaurante h7 {
+            font-size: 1.5rem;
+            color: #6c5b4c;
+            margin-bottom: 15px;
+        }
+
+        .info-restaurante p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            
+        
+            .info-section p, .horarios-section p {
+                font-size: 0.9em;
+            }
+        
+            .info-section, .horarios-section {
+                text-align: center;
+            }
+        }
+
+        .info-restaurante {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-restaurante h3 {
+            font-size: 1.5em;
+            color: #333;
+            text-align: center;
+        }
+        
+        .info-section, .horarios-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .info-section p, .horarios-section p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+
+        iframe {
+            flex: 1;
+            min-width: 300px;
+            max-width: 50%; 
+            height: 500px; 
+            border: none;
+            margin-left: 15px; 
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #8b705a;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #6c5b4c;
+        }
+
+        
+         
+        .btn-reservar {
+            display: inline-block;
+            background-color: #8B705A; 
+            color: #fff; 
+            font-size: 1rem; 
+            padding: 10px 20px; 
+            text-align: center;
+            text-decoration: none; 
+            border-radius: 8px; 
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+            transition: background-color 0.3s ease, transform 0.2s ease; 
+        }
+
+        .btn-reservar:hover {
+            background-color: #6C5B4C; 
+            transform: scale(1.05); 
+        }
+
+        .whatsapp {position: fixed; bottom: 30px; right: 30px; z-index: 9999;}
+    
+        nav {
+            display: flex;
+            background-color: rgb(108, 91, 76); 
+            justify-content: space-between;
+            align-items: center;
+            width: auto; 
+            padding: 0 20px; 
+            height: auto;
+            z-index: 99;
+        }
+
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-list a:hover {
+            color: #e0d5c8;
+        }
+
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-list.mobile {
+            display: none;
+            flex-direction: column;
+            background-color: #6c5b4c;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+
+        .nav-list.active {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                background-color: #6c5b4c;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-list.active {
+                display: flex;
+            }
+        }
+
+        .login-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background-color: #f4ede4;
+            color: #6c5b4c;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        
+        .login-btn:hover {
+            background-color: #e0d5c8;
+        }
+        
+        .login-btn img {
+            width: 20px;
+            height: 20px;
+        }
+        
+       
+        .login-mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #6c5b4c;
+            color: #fff;
+            font-size: 1rem;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .login-mobile:hover {
+            background-color: #543e2e;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .login-btn {
+                display: none; 
+            }
+        
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                background-color: #fff;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                width: 200px;
+                z-index: 10;
+                padding: 10px;
+            }
+        
+            .nav-list.active {
+                display: flex;
+            }
+        
+            .nav-list a {
+                color: #000; 
+            }
+        
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+        }
+        
+        
+        @media (min-width: 769px) {
+            .login-mobile {
+                display: none; 
+            }
+        
+            .hamburger {
+                display: none; 
+            }
+        
+            .nav-list {
+                display: flex; 
+                flex: 1;
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            
+            <a class="logo" href="/">
+                <img src="site.png" alt="Logo do Restaurante">
+            </a>
+        
+
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            
+            <ul class="nav-list">
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#reservas">Reservas</a></li>
+                <li><a href="#avaliacoes">Avaliações</a></li>
+                <li><a href="#localizacao">Localização</a></li>
+                <li><a href="signin.html" class="login-mobile">Entrar</a></li>
+            </ul>
+
+            <a href="signin.html" class="login-btn">
+                <img src="154345.png" alt="Ícone de usuário">
+                Login
+            </a>
+        </nav>
+</head>
+
+
+    <section class="banner">
+        <h2>Bem-vindo ao Bistrô da Serra</h2>
+    </section>
+    <section id="sobre" class="section">
+        <h3>Quem Somos</h3>
+        <p>No Bistrô da Serra, nossa missão é trazer o verdadeiro sabor da gastronomia serrana para a sua mesa.</p>
+           <p> 
+            Inspirados pelas tradições das montanhas, preparamos cada prato com ingredientes frescos da região e o cuidado das receitas caseiras.
+</p>
+            <p>Aqui, cada detalhe foi pensado para oferecer uma experiência acolhedora, seja para momentos em família, encontros especiais ou um simples almoço cheio de sabor e afeto.
+            </p>
+            <p>Descubra o encanto da serra em cada refeição. Estamos prontos para receber você! 🌿🍲</p>
+    </section>
+    <section id="cardapio" class="section">
+        <h4>Nosso Cardápio</h4>
+        <div class="card">
+            <img src="Arroz-de-Costela 300x200.jpg" alt="Arroz de Costela">
+            <img src="caldo verde 300x200.jpg" alt="Caldo Verde">
+            <img src="feijao carioca 300x200.jpg" alt="Feijão Carioca">
+        </div>
+        <a href="cardapio.html" class="btn">Veja o cardápio completo</a>
+    </section>
+    <section id="reservas" class="section">
+        <h5>Reservas</h5>
+        <p>Quer fazer sua reserva de forma rápida e fácil? 
+        <p>Clique no botão e fale com a gente pelo WhatsApp! É só escolher o dia e horário, tirar dúvidas e pronto.</p>
+        <p>Estamos aqui para te atender com todo o carinho. 💬🍽️</p>
+         
+    <a href="https://wa.me/5524998126777?text=Olá, queria reservar uma mesa." class="btn-reservar">Reservar</a>
+    </section>
+    <section id="avaliacoes" class="section">
+        <h6>Avaliações de Clientes</h6>
+        <div class="avaliacoes">
+            <div class="avaliacao">
+                <img src="maria silva.jpg" alt="Foto de Maria Silva">
+                <p>"A comida é simplesmente maravilhosa! O atendimento foi impecável."</p>
+                <span class="autor">- Maria Silva</span>
+            </div>
+            <div class="avaliacao">
+                <img src="joao souza.jpg" alt="Foto de João Souza">
+                <p>"Ambiente acolhedor e pratos deliciosos. Com certeza voltarei."</p>
+                <span class="autor">- João Souza</span>
+            </div>
+            <div class="avaliacao">
+                <img src="ana costa.jpg" alt="Foto de Ana Costa">
+                <p>"A melhor experiência gastronômica que tive na serra. Recomendo a todos!"</p>
+                <span class="autor">- Ana Costa</span>
+            </div>
+        </div>
+    </section>
+    </section>
+    <section id="localizacao" class="section">
+        <h7></h7>
+        <div class="localizacao-container">
+
+
+            
+            <div class="info-restaurante">
+                <h8>Endereço e Contato</h8>
+                <p><strong>Endereço:</strong> Estr. da Cascatinha, s/n - Alto da Boa Vista, Rio de Janeiro</p>
+                <p><strong>Telefone:</strong> (24) 99812-6777</p>
+                <p><strong>Email:</strong> contato@bistrodaserra.com</p>
+                <p><strong>Horário de Funcionamento:</strong></p>
+                <p>Segunda a Sexta: 12h - 22h</p>
+                <p>Sábados e Domingos: 11h - 23h</p>
+            </div>
+            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d197.63448444881942!2d-43.28654497034823!3d-22.95675188401216!2m3!1f0!2f39.175083106235185!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x9bd645623f4cb9%3A0xe422feb0b3a09119!2sRestaurante%20Os%20Esquilos!5e1!3m2!1spt-BR!2sbr!4v1733934797096!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Bistrô da Serra. Todos os direitos reservados.</p>
+    </footer>
+    <div class="whatsapp">
+        <a href="https://wa.me/5524998126777?text=Olá, queria reservar uma mesa." target="_blank">
+     <img src="zap logo.png" width="75" alt="Fale conosco pelo Whatsapp" title="Fale conosco pelo Whatsapp">
+    </a>
+    </div>
+    <body>
+        <script src="./signin.html"> </script>
+        <script>
+            const hamburger = document.querySelector('.hamburger');
+            const navList = document.querySelector('.nav-list');
+    
+            hamburger.addEventListener('click', () => {
+                navList.classList.toggle('active');
+            });
+        </script>
+    </body>
+</body>
+</html>
+   
